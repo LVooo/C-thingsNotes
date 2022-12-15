@@ -1,25 +1,18 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-class A
-{
-    virtual void fun() {}
-};
-class B
-{
-    virtual void fun2() {}
-};
-class C : virtual public  A
-{
-public:
-    virtual void fun3() {}
-};
 
 int main()
 {
-    /**
-     * @brief 8 8 16  派生类虚继承多个虚函数，会继承所有虚函数的vptr
-     */
-    cout << sizeof(A) << " " << sizeof(B) << " " << sizeof(C);
+	string  str2 = "Hello";
+	cout << true << endl;
 
-    return 0;
+	int int_type;
+	cout << "输入" << endl;
+	cin >> int_type;
+	cout << "输出" << int_type << endl;
+	/*
+	* 暂停程序进程
+	*/
+	system("pause");
+	return 0;
 }
