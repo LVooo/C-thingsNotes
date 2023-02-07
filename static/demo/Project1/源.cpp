@@ -1,30 +1,45 @@
 #include <iostream>
+#include <fstream>
+#include <string>
 using namespace std;
 
-class Student
+class Person
 {
 public:
-	// 类中的属性和行为 我们统一称为成员
-	// 属性 成员属性 成员变量
-	// 行为 成员函数 成员方法
 
-
-	string name;
-	int number;
-
-	void showInfo()
-	{
-		cout << "学生的姓名是：" << name << " 编号为：" << number << endl;
-	}
+	char m_Name[64];
+	int m_age;
 };
+
+void test01()
+{
+	// 1.包含头文件
+
+	// 2.创建流对象
+	ifstream ifs;
+
+	// 3.打开文件 判断文件是否打开成功
+	ifs.open("person.txt", ios::in | ios::binary);
+
+	if (!ifs.is_open())
+	{
+		cout << "文件打开失败" << endl;
+		return;
+	}
+
+	// 4.读文件
+	Person p;
+	ifs.read((char*)&p, sizeof(Person));
+
+	cout << "姓名：" << p.m_Name << " 年龄：" << p.m_age << endl;
+
+	// 5.关闭文件
+	ifs.close();
+}
 
 int main()
 {
-	Student s1;
-	s1.name = "小葛";
-	s1.number = 5332112;
-	
-	s1.showInfo();
+	test01();
 
 	system("pause");
 	return 0;
